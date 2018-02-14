@@ -1,0 +1,10 @@
+version: '2'
+services:
+
+  academy:
+    build: .
+    volumes:
+       - ./assets:/usr/src/app/assets
+
+    ports:
+      - "127.0.0.1:3331:3331"

@@ -1,0 +1,6 @@
+html
+  head
+    title!= title
+  body
+    <video id="videoPlayer" controls><source src="http://localhost:3331/academy/media/video.mp4" type="video/mp4"></video>
+    <script>const VP = document.getElementById('videoPlayer'); const VPToggle = document.getElementById('toggleButton'); VPToggle.addEventListener('click', function() { if (VP.paused) {VP.play()} else {VP.pause()} })</script>
