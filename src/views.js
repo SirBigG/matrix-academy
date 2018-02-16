@@ -36,7 +36,7 @@ app.get('/academy/media/:filename', asyncMiddleware(async (req, res) => {
       'Content-Range': `bytes ${start} - ${end} / ${fileSize}`,
       'Accept-Ranges': 'bytes',
       'Content-Length': chunksize,
-      'Content-Type': 'video/mp4',
+      'Content-Type': req.params.filename.includes('.ogv') ? 'video/ogg':'video/mp4',
       'Access-Control-Allow-Origin': '*'
     };
 
