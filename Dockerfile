@@ -6,7 +6,9 @@ COPY package.json ./
 
 RUN npm install && npm i -g webpack
 
-COPY . .
+COPY ./src ./src
+
+COPY webpack.config.js .
 
 RUN webpack
 

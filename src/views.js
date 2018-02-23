@@ -9,6 +9,18 @@ var app = express();
 const SRC_PATH = path.join(process.cwd(), 'src');
 const ASSETS_PATH = path.join(process.cwd(), 'assets');
 
+const get_mime_type = function(filename) {
+  if (filename.includes('.ogv')) {
+    return 'video/ogg';
+  } else if (filename.includes('.mov')) {
+    return 'video/quicktime';
+  } else if (filename.includes('.webm')) {
+    return 'video/webm';
+  } else {
+    return 'video/mp4';
+  }
+};
+
 
 // for views
 app.set('views', SRC_PATH + '/views');
@@ -36,7 +48,7 @@ app.get('/academy/media/:filename', asyncMiddleware(async (req, res) => {
       'Content-Range': `bytes ${start} - ${end} / ${fileSize}`,
       'Accept-Ranges': 'bytes',
       'Content-Length': chunksize,
-      'Content-Type': req.params.filename.includes('.ogv') ? 'video/ogg':'video/mp4',
+      'Content-Type': get_mime_type(req.params.filename),
       'Access-Control-Allow-Origin': '*'
     };
 
