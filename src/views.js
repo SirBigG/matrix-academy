@@ -12,8 +12,6 @@ const ASSETS_PATH = path.join(process.cwd(), 'assets');
 const get_mime_type = function(filename) {
   if (filename.includes('.ogv')) {
     return 'video/ogg';
-  } else if (filename.includes('.mov')) {
-    return 'video/quicktime';
   } else if (filename.includes('.webm')) {
     return 'video/webm';
   } else {
